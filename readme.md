@@ -1,4 +1,4 @@
-# gitCommitWithBranchName
+# gc2
 
 ## Overview
 This repository contains a simple Go script that automatically appends the current Git branch name to commit messages.
@@ -20,6 +20,9 @@ This repository contains a simple Go script that automatically appends the curre
     ```
 
 ## Usage
+
+You can compile the code with a arbitrary name or you can use the executable file in the project directory directly.
+
 1. Compile the script:
     
 You can use whatever you want as the output file name. In this example, the output file name is `gc`. You will use the program with that name.
