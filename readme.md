@@ -25,11 +25,11 @@ You can compile the code with a arbitrary name or you can use the executable fil
 
 1. Compile the script:
     
-You can use whatever you want as the output file name. In this example, the output file name is `gc`. You will use the program with that name.
+You can use whatever you want as the output file name. In this example, the output file name is `gc2`. You will use the program with that name.
 
 
 ```bash
-go build -o gc main.go
+go build -o gc2 main.go
 ```
 
 2. Move the executable file to a directory in your PATH:
@@ -45,7 +45,7 @@ sudo mv $PATH_OF_THE_EXECUTABLE_FILE /usr/local/bin/
 **Note:** First of all, you shuld use `git add` command to add the files to the staging area.
 
 ```bash
-gc -m "Your commit message"
+gc2 -m "Your commit message"
 ``` 
 
 The script will append the current branch name to the commit message.
