@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"fmt"
 	"os/exec"
 	"strings"
@@ -19,11 +20,34 @@ func getCurrentBranch() (string, error) {
 	return branch, nil
 }
 
+func commitWithBranchName(branchName string, commitMessage string) (string, error) {
+	message := branchName + " " + commitMessage
+
+	cmd := exec.Command("git", "commit", "-m", message)
+	output, err := cmd.Output()
+	if err != nil {
+		return "", err
+	}
+
+	return string(output), nil
+}
+
 func main() {
+
+	wordPtr := flag.String("m", "Default commit message", "A message for the commit")
+	flag.Parse()
+
 	branch, err := getCurrentBranch()
 	if err != nil {
-		fmt.Println("Error:", err)
+		fmt.Println("Error on getCurrentBranch():", err.Error())
 		return
 	}
-	fmt.Println("Current Git branch:", branch)
+
+	output, err := commitWithBranchName(branch, *wordPtr)
+	if err != nil {
+		fmt.Println("Error on commitWithBranchName():", err.Error())
+		return
+	}
+
+	fmt.Println(output)
 }
